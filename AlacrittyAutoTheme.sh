@@ -13,11 +13,9 @@ dbus-monitor --profile "interface='$interface',path=$monitor_path,member=$monito
 			theme="$(gsettings get org.gnome.desktop.interface color-scheme)"
 			if [[ "$theme" == "'prefer-dark'" ]]; then
 				#Need to set with full paths, goofy things are happening otherwise
-				# echo "$(echo import = [ \'~/.config/alacritty/alacritty-auto-theme/dark_theme.toml\' ] > ~/.config/alacritty/alacritty-auto-theme/theme.toml)"
-				git -C $HOME/.config/alacritty/ switch dark-theme
+				git -C "${HOME}/.config/alacritty/" checkout dark-theme
 			else
-				# echo "$(echo import = [ \'~/.config/alacritty/alacritty-auto-theme/light_theme.toml\' ] > ~/.config/alacritty/alacritty-auto-theme/theme.toml)"
-				git -C $HOME/.config/alacritty/ switch light-theme
+				git -C "${HOME}/.config/alacritty/" checkout light-theme
 			fi
 			count=0
 		fi
